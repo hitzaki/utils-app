@@ -1,0 +1,46 @@
+<Window x:Class="UtilApp.UtilsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="600" Width="800"
+        Title="Utils Window"
+        Icon="pack://application:,,,/image/1.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/> <!-- 图标栏 -->
+            <ColumnDefinition Width="*"/>   <!-- 功能区 -->
+        </Grid.ColumnDefinitions>
+
+        <!-- 图标栏 -->
+        <StackPanel x:Name="IconPanel" Width="100" Background="LightGray">
+            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon1_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
+                    <TextBlock Text="图标1" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Border>
+            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon2_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
+                    <TextBlock Text="图标2" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Border>
+            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon3_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
+                    <TextBlock Text="图标3" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Border>
+            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon4_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
+                    <TextBlock Text="图标4" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- 功能区 -->
+        <Grid x:Name="FunctionArea" Grid.Column="1" Background="White">
+            <TextBlock Text="功能区" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+    </Grid>
+</Window>

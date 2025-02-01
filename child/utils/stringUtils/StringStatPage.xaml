@@ -1,0 +1,35 @@
+<Page x:Class="UtilApp.StringStatPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="400"
+      Title="String Stat Page">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/> <!-- 输入框区域 -->
+            <RowDefinition Height="Auto"/> <!-- 统计信息区域 -->
+            <RowDefinition Height="Auto"/> <!-- 按钮区域 -->
+        </Grid.RowDefinitions>
+
+        <!-- 输入框 -->
+        <TextBox x:Name="InputTextBox" AcceptsReturn="True" TextChanged="InputTextBox_TextChanged" 
+                 VerticalScrollBarVisibility="Auto" 
+                 Margin="10" FontSize="14" />
+
+        <!-- 统计信息 -->
+        <StackPanel Grid.Row="1" Margin="10">
+            <TextBlock x:Name="CharacterCountText" FontSize="14"/>
+            <TextBlock x:Name="ChineseCharacterCountText" FontSize="14"/>
+            <TextBlock x:Name="EnglishCharacterCountText" FontSize="14"/>
+            <TextBlock x:Name="TotalLineCountText" FontSize="14"/>
+            <TextBlock x:Name="ParagraphCountText" FontSize="14"/>
+        </StackPanel>
+
+        <!-- 按钮区域 -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="清除" Width="100" Click="ClearButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

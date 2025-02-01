@@ -25,10 +25,6 @@ namespace UtilApp
         private Point lastMousePosition;
         private int trailCount = 0;
         private int trailNum = 5;
-        // TODO 吸附在屏幕边缘
-        // TODO 系统托盘
-        // TODO 代码抽象分层
-        // TODO 桌面宠物功能
         // 动画是否正在播放（按钮组和悬浮球）
         private bool isAnimationPlaying = false;
         private bool utilsButtonPlaying = false;

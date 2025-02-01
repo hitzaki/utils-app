@@ -5,42 +5,54 @@
         Title="Utils Window"
         Icon="pack://application:,,,/image/1.ico">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/> <!-- 图标栏 -->
-            <ColumnDefinition Width="*"/>   <!-- 功能区 -->
-        </Grid.ColumnDefinitions>
+<DockPanel>
+    <!-- 左侧导航栏 -->
+    <TreeView ItemsSource="{Binding NavigationItems}" SelectedItemChanged="TreeView_Selected" Background="White" BorderBrush="Black" BorderThickness="1">
+        <!-- 设置全局样式 -->
+        <TreeView.Resources>
+            <!-- 设置 TreeViewItem 的样式 -->
+            <Style TargetType="TreeViewItem">
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="5,2"/>
+            </Style>
 
-        <!-- 图标栏 -->
-        <StackPanel x:Name="IconPanel" Width="100" Background="LightGray">
-            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon1_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
-                    <TextBlock Text="图标1" Margin="5,0,0,0"/>
-                </StackPanel>
-            </Border>
-            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon2_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
-                    <TextBlock Text="图标2" Margin="5,0,0,0"/>
-                </StackPanel>
-            </Border>
-            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon3_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
-                    <TextBlock Text="图标3" Margin="5,0,0,0"/>
-                </StackPanel>
-            </Border>
-            <Border Margin="5" Padding="5" MouseEnter="IconPanel_MouseEnter" MouseLeave="IconPanel_MouseLeave" MouseDown="Icon4_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="pack://application:,,,/image/2.png" Width="20" Height="20"/>
-                    <TextBlock Text="图标4" Margin="5,0,0,0"/>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+            <!-- 设置 StackPanel 样式 -->
+            <Style TargetType="StackPanel">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Margin" Value="2,0"/>
+            </Style>
 
-        <!-- 功能区 -->
-        <Grid x:Name="FunctionArea" Grid.Column="1" Background="White">
-            <TextBlock Text="功能区" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-        </Grid>
+            <!-- 设置 Image 样式 -->
+            <Style TargetType="Image">
+                <Setter Property="Width" Value="16"/>
+                <Setter Property="Height" Value="16"/>
+                <Setter Property="Margin" Value="5,0"/>
+            </Style>
+
+            <!-- 设置 TextBlock 样式 -->
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="5,0"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+
+            <!-- 设置选中项的背景颜色 -->
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Black"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Black"/>
+        </TreeView.Resources>
+
+        <TreeView.ItemTemplate>
+            <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding ImageUrl}" Width="16" Height="16"/>
+                    <TextBlock Text="{Binding Name}" Margin="5,0,0,0"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </TreeView.ItemTemplate>
+    </TreeView>
+
+    <!-- 右侧内容区 -->
+    <Frame x:Name="MainFrame" Background="White" NavigationUIVisibility="Hidden"/>
+</DockPanel>
     </Grid>
 </Window>

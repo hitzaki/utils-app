@@ -118,7 +118,7 @@
     </Window.Resources>
     <Grid>
         <!-- 按钮组 -->
-        <Grid x:Name="ButtonGroup" Margin="0,0,0,0" Width="110" Height="110" MouseLeave="ButtonGroup_MouseLeave" Background="Transparent">
+        <Grid x:Name="ButtonGroup" Margin="0,0,0,0" Width="110" Height="110" MouseLeave="ButtonGroup_MouseLeave" Visibility="Collapsed" Background="Transparent">
             <!-- 工具栏按钮 -->
             <Border CornerRadius="15" BorderThickness="2" BorderBrush="Black" Background="White" 
                 Width="54" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-4,-4,0,0">
